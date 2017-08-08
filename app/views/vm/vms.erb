@@ -1,0 +1,17 @@
+<meta charset='utf-8'/>
+<a href='/'>return index</a>
+
+<table>
+  <% @lists.each do |item| %>
+      <tr>
+        <td><%= item.getName %></td>
+        <td><%= item.getUuid %></td>
+        <td><%= item.getVminfo["State"] %></td>
+        <td>
+          <a href="/vm/<%=item.getUuid%>/start">Start</a> |
+          <a href="/vm/<%=item.getUuid%>/stop">Stop</a> |
+          <a href="/vm/<%=item.getUuid%>/remove">Remove</a> |
+        </td>
+      </tr>
+  <% end %>
+</table>
