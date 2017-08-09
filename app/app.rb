@@ -46,10 +46,10 @@ class App < Sinatra::Application
 		redirect to '/'
 	end
 
-	get '/vm/:uuid/vminfo' do
+	get '/vm/:uuid/info' do
 		vh = VboxHelper.new
 		@vminfo = vh.vminfo(params[:uuid])
 
-		erb :"/vm/vminfo"
+		erb :"/vm/info"
 	end
 end
