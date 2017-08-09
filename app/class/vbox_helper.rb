@@ -32,6 +32,12 @@ class VboxHelper
   def stop(uuid)
     `vboxmanage controlvm #{uuid} poweroff`
   end
+  def save_state(uuid)
+    `vboxmanage controlvm #{uuid} savestate`
+  end
+  def pause(uuid)
+    `vboxmanage controlvm #{uuid} pause`
+  end
   def remove(uuid)
     `vboxmanage unregistervm '#{uuid}' --delete`
   end

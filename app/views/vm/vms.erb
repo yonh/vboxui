@@ -6,9 +6,17 @@
       <tr>
         <td><%= item.getName %></td>
         <td><%= item.getUuid %></td>
-        <td><%= item.getVminfo["State"] %></td>
+        <% if item.getVminfo['State'].to_s.start_with?('running') %>
+          <td style="color:green;"><%= item.getVminfo["State"] %></td>
+        <% elsif item.getVminfo['State'].to_s.start_with?('saved')%>
+          <td style="color:blue;"><%= item.getVminfo["State"] %></td>
+        <% else %>
+          <td style="color:red;"><%= item.getVminfo["State"] %></td>
+        <% end%>
         <td>
           <a href="/vm/<%=item.getUuid%>/start">Start</a> |
+          <a href="/vm/<%=item.getUuid%>/pause">Pause</a> |
+          <a href="/vm/<%=item.getUuid%>/save_state">Save State</a> |
           <a href="/vm/<%=item.getUuid%>/stop">Stop</a> |
           <a href="/vm/<%=item.getUuid%>/remove">Remove</a> |
         </td>

@@ -13,17 +13,37 @@ class App < Sinatra::Application
 
 	get '/vm/:uuid/start' do
 		vh = VboxHelper.new
-		return vh.start(params[:uuid])
+		vh.start(params[:uuid])
+
+		redirect to '/'
 	end
 
 	get '/vm/:uuid/stop' do
 		vh = VboxHelper.new
-		return vh.stop(params[:uuid])
+		vh.stop(params[:uuid])
+
+		redirect to '/'
+	end
+
+	get '/vm/:uuid/pause' do
+		vh = VboxHelper.new
+		vh.pause(params[:uuid])
+
+		redirect to '/'
+	end
+
+	get '/vm/:uuid/save_state' do
+		vh = VboxHelper.new
+		vh.save_state(params[:uuid])
+
+		redirect to '/'
 	end
 
 	get '/vm/:uuid/remove' do
 		vh = VboxHelper.new
-		return vh.remove(params[:uuid])
+		vh.remove(params[:uuid])
+
+		redirect to '/'
 	end
 
 	get '/vm/:uuid/vminfo' do
