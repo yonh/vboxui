@@ -42,6 +42,19 @@ class VboxHelper
     `vboxmanage unregistervm '#{uuid}' --delete`
   end
 
+  def snapshot_take(uuid, name)
+    `vboxmanage snapshot #{uuid} take "#{name}"`
+  end
+  def snapshot_restore(uuid, snapshot_id)
+    `vboxmanage snapshot #{uuid} restore '#{snapshot_id}'`
+  end
+
+  def snapshots(uuid)
+    result = `vboxmanage snapshot #{uuid} list`
+
+    result
+  end
+
   def vminfo(uuid)
     result = `vboxmanage showvminfo #{uuid}`
     map = Hash.new
@@ -66,3 +79,4 @@ class VboxHelper
     map
   end
 end
+

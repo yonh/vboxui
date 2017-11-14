@@ -1,0 +1,18 @@
+<meta charset='utf-8'/>
+<a href='/'>return index</a>
+<br/>
+
+<table>
+  <% @snapshots.each do |item| %>
+      <tr>
+        <td><%= item['is_current'] %></td>
+        <td><%= item['snapshot_id'] %></td>
+        <td><%= item['name'] %></td>
+        <td>
+          [
+          <a href="/vm/<%=item['id']%>/restore">Restore</a>
+          ]
+        </td>
+      </tr>
+  <% end %>
+</table>
