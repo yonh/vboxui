@@ -4,5 +4,5 @@
 ![Screenshot](info.png)
 
 ## 实现计划
-- [ ] Snapshots Manage
+- [x] Snapshots Manage
 - [ ] Vm Create
